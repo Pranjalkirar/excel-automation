@@ -20,7 +20,7 @@ def process_workbook(file_in, file_out, source_col, target_col, expression):
 
     wb.save(file_out)
 
-# 🔧 User Inputs
+# User Inputs
 print("🔧 Simple Excel Modifier")
 
 source_col_letter = input("Enter column letter to modify (e.g., C): ").strip().upper()
@@ -30,12 +30,12 @@ user_expression = input("Enter math expression using 'x' (e.g., x * 0.9, x + 100
 source_col_index = column_letter_to_index(source_col_letter)
 target_col_index = column_letter_to_index(target_col_letter)
 
-# 📁 Folder Setup
+# Folder Setup
 input_folder = 'input'
 output_folder = 'output'
 os.makedirs(output_folder, exist_ok=True)
 
-# 🔁 Loop through files
+# Loop through files
 for file_name in os.listdir(input_folder):
     if file_name.endswith('.xlsx') and not file_name.startswith('~$'):
         full_in_path = os.path.join(input_folder, file_name)
@@ -44,4 +44,4 @@ for file_name in os.listdir(input_folder):
         print(f"Processing {file_name}...")
         process_workbook(full_in_path, full_out_path, source_col_index, target_col_index, user_expression)
 
-print("✅ Done! Modified files are saved in the 'output/' folder.")
+print(" Done! Modified files are saved in the 'output/' folder.")
