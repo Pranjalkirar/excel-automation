@@ -11,7 +11,7 @@ def process_workbook(file_in, file_out, source_col, target_col, expression):
     for row in range(2, sheet.max_row + 1):
         cell = sheet.cell(row, source_col)
         if cell.value is not None:
-            x = cell.value  # ✅ x is now used inside eval()
+            x = cell.value 
             try:
                 result = eval(expression)
                 sheet.cell(row, target_col).value = result
